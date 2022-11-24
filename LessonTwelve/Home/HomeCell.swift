@@ -92,14 +92,14 @@ class HomeCell: UICollectionViewCell {
         layer.borderWidth = 0.7
         layer.borderColor = UIColor.borderColor.cgColor
         layer.cornerRadius = 5
-        backgroundColor = .cellBackground
     }
     
-    func setInformation(hero: SuperHero, index: Int) {
+    func setInformation(hero: Hero, index: Int, color: UIColor) {
         imageView.image = UIImage(named: hero.image)
         nicknameLabel.text = hero.nick
         nameLabel.text = hero.name
         tag = index
+        backgroundColor = color
     }
     
 //    MARK: - Selectors

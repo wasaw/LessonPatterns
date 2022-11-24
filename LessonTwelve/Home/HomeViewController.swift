@@ -9,7 +9,7 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
-    func showInformation(hero: [SuperHero])
+    func showInformation(hero: Publisher)
 }
 
 class HomeViewController: UIViewController, HomeViewProtocol {
@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     
     private var collectionView: UICollectionView?
     
-    private var superhero: [SuperHero]? {
+    private var superhero: Publisher? {
         didSet {
             collectionView?.reloadData()
         }
@@ -33,7 +33,6 @@ class HomeViewController: UIViewController, HomeViewProtocol {
         super.viewDidLoad()
 
         configurator.configure(with: self)
-        presenter?.configureView()
         
         configureUI()
         presenter?.loadData()
@@ -58,7 +57,7 @@ class HomeViewController: UIViewController, HomeViewProtocol {
         collectionView.backgroundColor = .background
     }
     
-    func showInformation(hero: [SuperHero]) {
+    func showInformation(hero: Publisher) {
         superhero = hero
     }
 }
@@ -68,7 +67,7 @@ class HomeViewController: UIViewController, HomeViewProtocol {
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let superhero = superhero {
-            return superhero.count
+            return superhero.getCount()
         }
         return 0
     }
@@ -76,7 +75,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCell.identifire, for: indexPath) as? HomeCell else { return UICollectionViewCell() }
         if let superhero = superhero {
-            cell.setInformation(hero: superhero[indexPath.item], index: indexPath.item)
+            cell.setInformation(hero: superhero.indexHero(index: indexPath.item), index: indexPath.item, color: superhero.indexColor(index: indexPath.item))
             cell.delegate = self
         }
         return cell
@@ -100,6 +99,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: DetailsButtonProtocol {
     func openDetails(index: Int) {
         guard let superhero = superhero else { return }
-        presenter?.details(hero: superhero[index])
+        presenter?.details(hero: superhero.indexHero(index: index))
     }
 }

@@ -18,7 +18,7 @@ class DetailsViewController: UIViewController {
     var presenter: DetailsPresenterProtocol?
     let configurator: DetailsConfiguratorProtocol = DetailsConfigurator()
     
-    private let selectedHero: SuperHero
+    private let selectedHero: Hero
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -31,6 +31,7 @@ class DetailsViewController: UIViewController {
         let view = UITextView()
         view.font = UIFont.systemFont(ofSize: 20)
         view.textAlignment = .left
+        view.textColor = .black 
         view.backgroundColor = .background
         return view
     }()
@@ -50,7 +51,7 @@ class DetailsViewController: UIViewController {
     
 //    MARK: - Lifecycle
     
-    init(hero: SuperHero) {
+    init(hero: Hero) {
         self.selectedHero = hero
         super.init(nibName: nil, bundle: nil)
     }

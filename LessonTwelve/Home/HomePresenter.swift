@@ -4,12 +4,17 @@
 //
 //  Created by Александр Меренков on 09.11.2022.
 //
+import UIKit
 
 protocol HomePresenterProtocol: AnyObject {
     var router: HomeRouterProtocol? { get set }
     func sendInformation(hero: [SuperHero])
     func loadData()
     func details(hero: SuperHero)
+    func subscribe(hero: SuperHero)
+    func updateNotify(color: UIColor)
+    func updateCollectionView()
+    func unsubscribe(hero: SuperHero)
 }
 
 class HomePresenter: HomePresenterProtocol {
@@ -38,5 +43,21 @@ class HomePresenter: HomePresenterProtocol {
     
     func details(hero: SuperHero) {
         router?.detailsPage(hero: hero)
+    }
+    
+    func subscribe(hero: SuperHero) {
+        interactor?.subscribe(hero: hero)
+    }
+    
+    func updateNotify(color: UIColor) {
+        interactor?.updateNotify(color: color)
+    }
+    
+    func updateCollectionView() {
+        view?.updateCollectionView()
+    }
+    
+    func unsubscribe(hero: SuperHero) {
+        interactor?.unsubscribe(hero: hero)
     }
 }

@@ -4,17 +4,21 @@
 //
 //  Created by Александр Меренков on 09.11.2022.
 //
+import UIKit
 
 protocol HomeInteractorProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
     func loadInformation()
+    func subscribe(hero: SuperHero)
+    func updateNotify(color: UIColor)
+    func unsubscribe(hero: SuperHero)
 }
 
 class HomeInteractor: HomeInteractorProtocol {
     
 //    MARK: - Properties
     weak var presenter: HomePresenterProtocol?
-    
+    let publisher = Publisher()
         
 //    MARK: - Lifecycle
     init(presenter: HomePresenterProtocol) {
@@ -52,4 +56,18 @@ class HomeInteractor: HomeInteractorProtocol {
         presenter?.sendInformation(hero: groupOfHero)
     }
     
+    func subscribe(hero: SuperHero) {
+        hero.subscriber = .unsubscribe
+        publisher.add(subscriber: hero)
+    }
+    
+    func updateNotify(color: UIColor) {
+        publisher.notify(color: color)
+        presenter?.updateCollectionView()
+    }
+    
+    func unsubscribe(hero: SuperHero) {
+        hero.subscriber = .subscribe
+        publisher.remote(subscriber: hero)
+    }
 }

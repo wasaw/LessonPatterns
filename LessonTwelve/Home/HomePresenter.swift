@@ -10,7 +10,6 @@ protocol HomePresenterProtocol: AnyObject {
     var router: HomeRouterProtocol? { get set }
     func sendInformation(hero: [SuperHero])
     func loadData()
-    func details(hero: SuperHero)
     func subscribe(hero: SuperHero)
     func updateNotify(color: UIColor)
     func updateCollectionView()
@@ -39,10 +38,6 @@ class HomePresenter: HomePresenterProtocol {
     
     func loadData() {
         interactor?.loadInformation()
-    }
-    
-    func details(hero: SuperHero) {
-        router?.detailsPage(hero: hero)
     }
     
     func subscribe(hero: SuperHero) {

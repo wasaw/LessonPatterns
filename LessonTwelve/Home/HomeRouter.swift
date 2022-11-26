@@ -10,7 +10,6 @@ import Foundation
 
 protocol HomeRouterProtocol: AnyObject {
     var viewController: HomeViewController? { get set }
-    func detailsPage(hero: SuperHero)
 }
 
 class HomeRouter: HomeRouterProtocol {
@@ -23,13 +22,5 @@ class HomeRouter: HomeRouterProtocol {
     
     init(viewController: HomeViewController!) {
         self.viewController = viewController
-    }
-    
-//    MARK: - Helpers
-    
-    func detailsPage(hero: SuperHero) {
-        let vc = DetailsViewController(hero: hero)
-        vc.modalPresentationStyle = .fullScreen
-        viewController?.present(vc, animated: true, completion: nil)
     }
 }

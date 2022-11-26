@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum HeroType {
+    case Marvel
+    case DC
+}
+
 struct HeroCredentials {
     let image: String
     let nick: String
@@ -21,21 +26,34 @@ struct HeroCredentials {
     }
 }
 
-protocol HeroFactory {
+protocol HeroConfigurator {
     func createHero(image: String, nick: String, name: String, detail: String) -> Hero
 }
 
-class MarvelFactory: HeroFactory {
+class MarvelConfigurator: HeroConfigurator {
     var cellBackground = UIColor(displayP3Red: 1, green: 133/255, blue: 82/255, alpha: 1)
     func createHero(image: String, nick: String, name: String, detail: String) -> Hero {
         return MarvelHero(image: image, nick: nick, name: name, detail: detail)
     }
 }
 
-class DCFactory: HeroFactory {
+class DCConfigurator: HeroConfigurator {
     var cellBackground = UIColor(displayP3Red: 1, green: 123, blue: 123, alpha: 1)
     func createHero(image: String, nick: String, name: String, detail: String) -> Hero {
         return DCHero(image: image, nick: nick, name: name, detail: detail)
+    }
+}
+
+class HeroManager {
+    func create(type: HeroType, credentials: HeroCredentials) -> Hero {
+        switch type {
+        case .Marvel:
+            let configurator = MarvelConfigurator()
+            return configurator.createHero(image: credentials.image, nick: credentials.nick, name: credentials.name, detail: credentials.detail)
+        case .DC:
+            let configurator = DCConfigurator()
+            return configurator.createHero(image: credentials.image, nick: credentials.nick, name: credentials.name, detail: credentials.detail)
+        }
     }
 }
 
@@ -79,25 +97,4 @@ class DCHero: Hero {
     }
 }
 
-class Publisher {
-    private var allHero: [Hero] = []
-    
-    func addHero(factory: HeroFactory, credentials: HeroCredentials) {
-        let newHero = factory.createHero(image: credentials.image, nick: credentials.nick, name: credentials.name, detail: credentials.detail)
-        allHero.append(newHero)
-        allHero.shuffle()
-    }
-    
-    func getCount() -> Int {
-        return allHero.count
-    }
-    
-    func indexHero(index: Int) -> Hero {
-        return allHero[index]
-    }
-    
-    func indexColor(index: Int) -> UIColor {
-        return allHero[index].cellBackground
-    }
-}
 

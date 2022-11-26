@@ -24,55 +24,55 @@ class HomeInteractor: HomeInteractorProtocol {
 //    MARK: - Helpers
     
     func loadInformation() {
-        let spiderMan = HeroCredentials(image: "spiderman", nick: "Человек-паук", name: "Питер Паркер", detail: """
+        let spiderManCredentials = HeroCredentials(image: "spiderman", nick: "Человек-паук", name: "Питер Паркер", detail: """
                                   \tСупергерой, появляющийся в комиксах издательства Marvel Comics, созданный Стэном Ли и Стивом Дитко. С момента своего первого появления на страницах комикса Amazing Fantasy № 15 (рус. Удивительная фантазия, август 1962) он стал одним из самых популярных супергероев. Ли и Дитко задумывали персонажа как подростка-сироту, воспитанного дядей и тётей, совмещающего жизнь обычного студента и борца с преступностью. \n\tЧеловек-паук получил суперсилу, увеличенную ловкость, «паучье чутьё», а также способность держаться на отвесных поверхностях и выпускать паутину из рук с использованием прибора собственного изобретения.
                                   """)
-        let ironMan = HeroCredentials(image: "ironman", nick: "Железный человек", name: "Тони Старк", detail: """
+        let ironManCredentials = HeroCredentials(image: "ironman", nick: "Железный человек", name: "Тони Старк", detail: """
 \tCупергерой комиксов издательства Marvel Comics, созданный писателем Стэном Ли, сценаристом Ларри Либером и художниками Доном Хекомruen и Джеком Кирби. Железный человек впервые появился в комиксе Tales of Suspense #39 (март 1963). \n\tВ первоначальном варианте своей биографии Тони Старк, гениальный изобретатель, муж Верналии Лодж и богатейший промышленник с репутацией плейбоя, страдает от ранения, полученного им в плену, где его вынудили разработать для террористов оружие массового поражения. Вместо этого он создаёт высокотехнологичный костюм-броню, с помощью которого сбегает из плена. \n\tПозднее Старк улучшает свою броню вооружением и устройствами, созданными на базе ресурсов его компании, и использует доспех, чтобы защищать мир в облике Железного человека, первое время скрывая свою личность.
 """)
-        let captain = HeroCredentials(image: "captain", nick: "Капитан Америка", name: "Стив Роджерс", detail: """
+        let captainCredentials = HeroCredentials(image: "captain", nick: "Капитан Америка", name: "Стив Роджерс", detail: """
 \tСупергерой комиксов издательства Marvel Comics, являющийся одним из самых известных персонажей в мире комиксов. Он был создан писателем Джо Саймоном и художником Джеком Кирби и впервые появился в комиксах 1940-х Timely Comics. За годы в общей сложности в 75 странах было продано около 210 миллионов копий комиксов «Captain America».
 """)
-        let hulk = HeroCredentials(image: "hulk", nick: "Халк", name: "Брюс Бэннер", detail: """
+        let hulkCredentials = HeroCredentials(image: "hulk", nick: "Халк", name: "Брюс Бэннер", detail: """
 \tВпервые Халк появился в комиксе The Incredible Hulk #1 (май 1962), созданный автором Стэном Ли, художником-соавтором Джеком Кирби и инкёром Полом Рейнманом. На то время комикс стоил всего 12 центов. В первом выпуске Халк был не зелёным, а серым. Автор и главный редактор Marvel, Стэн Ли, хотел цвет, который не предполагал бы какую-либо этническую группу. Колорист Стэн Голдберг, однако, настоял, что цветовая технология того времени не могла представлять серый цвет ясно или постоянно, из-за чего в выпуске были разные оттенки серого и даже зелёный. \n\tНачиная со 2-го выпуска (июль 1962) Голдберг перекрасил кожу Халка в зелёный цвет. Зелёный использовался в пересказываниях происхождения, даже перепечатки оригинальной истории два последующих десятилетия перекрашивались. В The Incredible Hulk vol. 2 #302 (декабрь 1984) серый Халк был заново представлен в воспоминаниях, имевших место близ оригинальной истории.
 """)
-        let tor = HeroCredentials(image: "tor", nick: "Тор", name: "Тор Одинсон", detail: """
+        let torCredentials = HeroCredentials(image: "tor", nick: "Тор", name: "Тор Одинсон", detail: """
 \tСупергерой комиксов издательства Marvel Comics. Персонаж основан на образе одноимённого бога - громовержца из германо-скандинавской мифологии. Его авторы в Marvel — редактор Стэн Ли, сценарист Ларри Либер и художник Джек Кирби, а первое появление приходится на комикс Journey into Mystery #83 (1962), который позже сменил название на «The Mighty Thor».
 """)
-        let blackWidow = HeroCredentials(image: "blackwidow", nick: "Черная вдова", name: "Наталья Романова", detail: """
+        let blackWidowCredentials = HeroCredentials(image: "blackwidow", nick: "Черная вдова", name: "Наталья Романова", detail: """
  \tВымышленная супергероиня, уроженка Волгограда, появляющаяся в американских комиксах издательства Marvel Comics. Созданная редактором и писателем Стэном Ли, сценаристом Доном Рико и художником Доном Хеком, она впервые появилась в комиксе «Тревожные истории» #52 (апрель 1964 года). \n\tПервоначально Наталья Романова была представлена как русская шпионка и враг Железного человека, однако позже она сбежала в США, став агентом организации «Щ. И. Т.» и членом супергеройской команды Мстители.
 """)
-        let deadpool = HeroCredentials(image: "deadpool", nick: "Дедпул", name: "Уинстон Уйлсон", detail: """
+        let deadpoolCredentials = HeroCredentials(image: "deadpool", nick: "Дедпул", name: "Уинстон Уйлсон", detail: """
 \tАнтигерой комиксов издательства Marvel Comics, созданный художником Робом Лайфилдом и писателем Фабьеном Нисизой и впервые появившийся в комиксе The New Mutants #98 (февраль 1991). Прозванный «Болтливым наёмником», персонаж обладает нестандартным, крайне циничным и пошлым чувством юмора.
 """)
-        let wolverine = HeroCredentials(image: "wolverine", nick: "Росомаха", name: "Джеймс Хоулетт", detail: """
+        let wolverineCredentials = HeroCredentials(image: "wolverine", nick: "Росомаха", name: "Джеймс Хоулетт", detail: """
 \tАнтигерой комиксов издательства Marvel Comics. Персонаж появился на свет в 180-м выпуске комикса Incredible Hulk в октябре 1974 года, был создан писателем Леном Уэйном и художником Джоном Ромитой-старшим в сотрудничестве с Хербом Тримплом. Персонаж быстро стал любимцем фанатов, и уже с 1982 года имеет свою собственную серию комиксов.
 """)
         
-        let superman = HeroCredentials(image: "superman", nick: "superman", name: "Кларк Кент", detail: """
+        let supermanCredentials = HeroCredentials(image: "superman", nick: "Супермен", name: "Кларк Кент", detail: """
 Суперме́н — супергерой комиксов, которые выпускаются компанией DC Comics. Он считается иконой американской культуры. Придуманный писателем Джерри Сигелом и художником Джо Шустером и проданный компании Detective Comics (позднее DC Comics), персонаж впервые появился на страницах Action Comics № 1 (июнь 1938 г.), а впоследствии появлялся в различных радиопередачах, телевизионных программах, фильмах, на газетных полосах и в видеоиграх. Своим успехом Супермен помог создать жанр супергероя и занял первенство среди американских комиксов. Персонаж обладает яркой внешностью: красный, синий и жёлтый цвета костюма, в комплекте с плащом и эмблемой в виде треугольного щита с буквой «S» в центре.
 """)
         
-        let batman = HeroCredentials(image: "batman", nick: "batman", name: "Брюс Уэйн", detail: """
+        let batmanCredentials = HeroCredentials(image: "batman", nick: "Бэтмен", name: "Брюс Уэйн", detail: """
 В оригинальной версии биографии Бэтмен — тайное альтер-эго миллиардера Брю́са Уэ́йна, успешного промышленника, филантропа и любимца женщин. В детстве, став свидетелем убийства своих родителей, Брюс поклялся посвятить свою жизнь искоренению преступности и борьбе за справедливость. Подготовив себя физически и морально, он надевает стилизованный костюм летучей мыши и выходит на улицы города для противостояния преступникам. Место действия историй о Бэтмене — вымышленный американский город Готэм, созданный на основе Чикаго с элементами Нью-Йорка. При содействии нескольких второстепенных персонажей, в том числе своего напарника Робина, дворецкого Альфреда, комиссара полиции Джеймса Гордона, а также иногда супергероинь Бэтгёрл и Бэтвумен, Бэтмен противостоит преступному сообществу, коррумпированным политикам и продажным представителям власти Готэма, а также группе злодеев, среди которых Джокер, Двуликий, Ядовитый Плющ, Пингвин. В отличие от большинства супергероев, Бэтмен не обладает сверхспособностями, а использует свой высокий интеллект, различные навыки боевых искусств, познания в науке и технике, а также несгибаемую волю, способность внушать страх и запугивать своих врагов. В отличие от преступников, которым он противостоит, Бэтмен почти никогда никого не убивает.
 """)
         
-        let wonderWoman = HeroCredentials(image: "wonder", nick: "wonder woman", name: "Диана", detail: """
+        let wonderWomanCredentials = HeroCredentials(image: "wonder", nick: "Чудо женщина", name: "Диана", detail: """
 Чудо-женщина — принцесса амазонок (основана на греческой мифологии), у себя на родине известна как Диана. Диана — опытная воительница, обладает сверхчеловеческой силой, скоростью, выносливостью, умеет общаться с животными, а также использует лассо Истины, с помощью которого может заставить говорить правду, и неразрушимые браслеты, которые служат в качестве защиты.
 """)
         
-        let allHero = Publisher()
-        allHero.addHero(factory: MarvelFactory(), credentials: spiderMan)
-        allHero.addHero(factory: MarvelFactory(), credentials: ironMan)
-        allHero.addHero(factory: MarvelFactory(), credentials: captain)
-        allHero.addHero(factory: MarvelFactory(), credentials: hulk)
-        allHero.addHero(factory: MarvelFactory(), credentials: tor)
-        allHero.addHero(factory: MarvelFactory(), credentials: blackWidow)
-        allHero.addHero(factory: MarvelFactory(), credentials: deadpool)
-        allHero.addHero(factory: MarvelFactory(), credentials: wolverine)
-        allHero.addHero(factory: DCFactory(), credentials: superman)
-        allHero.addHero(factory: DCFactory(), credentials: batman)
-        allHero.addHero(factory: DCFactory(), credentials: wonderWoman)
+        let spiderMan = HeroManager().create(type: .Marvel, credentials: spiderManCredentials)
+        let ironMan = HeroManager().create(type: .Marvel, credentials: ironManCredentials)
+        let captain = HeroManager().create(type: .Marvel, credentials: captainCredentials)
+        let hulk = HeroManager().create(type: .Marvel, credentials: hulkCredentials)
+        let tor = HeroManager().create(type: .Marvel, credentials: torCredentials)
+        let blackWidow = HeroManager().create(type: .Marvel, credentials: blackWidowCredentials)
+        let deadpool = HeroManager().create(type: .Marvel, credentials: deadpoolCredentials)
+        let wolwerine = HeroManager().create(type: .DC, credentials: wolverineCredentials)
+        let superman = HeroManager().create(type: .DC, credentials: supermanCredentials)
+        let batman = HeroManager().create(type: .DC, credentials: batmanCredentials)
+        let wonderWoman = HeroManager().create(type: .DC, credentials: wonderWomanCredentials)
+        let allHero = [spiderMan, ironMan, captain, hulk, tor,blackWidow, deadpool, wolwerine, superman, batman, wonderWoman].shuffled()
         
         presenter?.sendInformation(hero: allHero)
     }

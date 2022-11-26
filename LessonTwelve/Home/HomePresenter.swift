@@ -7,7 +7,7 @@
 
 protocol HomePresenterProtocol: AnyObject {
     var router: HomeRouterProtocol? { get set }
-    func sendInformation(hero: Publisher)
+    func sendInformation(hero: [Hero])
     func loadData()
     func details(hero: Hero)
 }
@@ -28,7 +28,7 @@ class HomePresenter: HomePresenterProtocol {
     
 //    MARK: - Helpers
     
-    func sendInformation(hero: Publisher) {
+    func sendInformation(hero: [Hero]) {
         view?.showInformation(hero: hero)
     }
     

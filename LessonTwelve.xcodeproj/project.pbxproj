@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB60D4A329337AE200C4B106 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB60D4A229337AE200C4B106 /* NetworkService.swift */; };
+		BB60D4A529337BA300C4B106 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB60D4A429337BA300C4B106 /* NetworkConfiguration.swift */; };
+		BB60D4A82934B7BF00C4B106 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB60D4A72934B7BF00C4B106 /* JsonHelper.swift */; };
 		BB696B2F291BD91700AEDEFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB696B2E291BD91700AEDEFA /* AppDelegate.swift */; };
 		BB696B31291BD91700AEDEFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB696B30291BD91700AEDEFA /* SceneDelegate.swift */; };
 		BB696B36291BD91700AEDEFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB696B34291BD91700AEDEFA /* Main.storyboard */; };
@@ -28,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB60D4A229337AE200C4B106 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BB60D4A429337BA300C4B106 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		BB60D4A72934B7BF00C4B106 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
+		BB60D4A92934F6B300C4B106 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BB696B2B291BD91700AEDEFA /* LessonTwelve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LessonTwelve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB696B2E291BD91700AEDEFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB696B30291BD91700AEDEFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +68,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB60D4A129337AD500C4B106 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BB60D4A229337AE200C4B106 /* NetworkService.swift */,
+				BB60D4A429337BA300C4B106 /* NetworkConfiguration.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		BB60D4A62934B71600C4B106 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BB60D4A72934B7BF00C4B106 /* JsonHelper.swift */,
+				BB60D4A92934F6B300C4B106 /* Config.xcconfig */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BB696B22291BD91700AEDEFA = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +105,8 @@
 		BB696B2D291BD91700AEDEFA /* LessonTwelve */ = {
 			isa = PBXGroup;
 			children = (
+				BB60D4A62934B71600C4B106 /* Service */,
+				BB60D4A129337AD500C4B106 /* API */,
 				BB6DDD38291E34BB0040BECB /* Utils */,
 				BB696B2E291BD91700AEDEFA /* AppDelegate.swift */,
 				BB696B30291BD91700AEDEFA /* SceneDelegate.swift */,
@@ -205,9 +232,12 @@
 				BB6DDD44291E73890040BECB /* DetailsRouter.swift in Sources */,
 				BB6DDD2F291BE00F0040BECB /* HomeConfigurator.swift in Sources */,
 				BB6DDD42291E737D0040BECB /* DetailsConfigurator.swift in Sources */,
+				BB60D4A529337BA300C4B106 /* NetworkConfiguration.swift in Sources */,
 				BB6DDD31291CE2110040BECB /* HomeRouter.swift in Sources */,
+				BB60D4A82934B7BF00C4B106 /* JsonHelper.swift in Sources */,
 				BB6DDD2B291BDF800040BECB /* HomePresenter.swift in Sources */,
 				BB6DDD33291D24480040BECB /* HomeCell.swift in Sources */,
+				BB60D4A329337AE200C4B106 /* NetworkService.swift in Sources */,
 				BB6DDD35291D29E70040BECB /* HomeModel.swift in Sources */,
 				BB6DDD3E291E73500040BECB /* DetailsPresenter.swift in Sources */,
 				BB6DDD37291E34AC0040BECB /* Extensions.swift in Sources */,
@@ -240,6 +270,7 @@
 /* Begin XCBuildConfiguration section */
 		BB696B3D291BD91B00AEDEFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB60D4A92934F6B300C4B106 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -300,6 +331,7 @@
 		};
 		BB696B3E291BD91B00AEDEFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB60D4A92934F6B300C4B106 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -31,6 +31,7 @@ class DetailsViewController: UIViewController {
         let view = UITextView()
         view.font = UIFont.systemFont(ofSize: 20)
         view.textAlignment = .left
+        view.textColor = .black
         view.backgroundColor = .background
         return view
     }()

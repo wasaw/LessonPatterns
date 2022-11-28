@@ -33,7 +33,6 @@ class HomeViewController: UIViewController, HomeViewProtocol {
         super.viewDidLoad()
 
         configurator.configure(with: self)
-        presenter?.configureView()
         
         configureUI()
         presenter?.loadData()

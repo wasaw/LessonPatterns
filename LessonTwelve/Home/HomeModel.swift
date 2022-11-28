@@ -7,9 +7,9 @@
 
 struct SuperHero {
     let image: String
-    let nick: String
+    var nick: String
     let name: String
-    let detail: String
+    var detail: String
     
     init(image: String, nick: String, name: String, detail: String) {
         self.image = image
@@ -17,4 +17,18 @@ struct SuperHero {
         self.name = name
         self.detail = detail
     }
+}
+
+struct HeroItem: Codable {
+    let id: Int
+    let name:  String
+    let description: String
+}
+
+struct HeroData: Codable {
+    let results: [HeroItem]
+}
+
+struct HeroAnswer: Codable {
+    let data: HeroData
 }
